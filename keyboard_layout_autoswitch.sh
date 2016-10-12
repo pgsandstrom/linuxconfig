@@ -9,4 +9,4 @@ do
 	elif (("$CURRENT_KEYBOARD" == "se")); then
 		$(setxkbmap -model pc105 -layout "us") 
 	fi
-done < <(xprop -spy -root _NET_ACTIVE_WINDOW)
+done < <(xprop -spy -root _NET_ACTIVE_WINDOW 2>/dev/null)
