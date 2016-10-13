@@ -6,6 +6,9 @@ do
 		continue
 	fi
 	NAME=$(xprop -id $WINDOW_ID | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
+	if (($? != 0)); then
+		continue
+	fi
 	CURRENT_KEYBOARD="$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')"
 	if ([[ $NAME == *"Google Chrome"* ]] || [[ $NAME == *"Firefox"* ]]) && (("$CURRENT_KEYBOARD" == "us")); then
 		$(setxkbmap -model pc105 -layout "se") 
