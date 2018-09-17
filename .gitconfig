@@ -1,0 +1,6 @@
+[alias]
+# stash by name in a simpler way
+# https://stackoverflow.com/questions/11269256/how-to-name-and-retrieve-a-stash-by-name-in-git
+sshow = "!f() {  git stash show  stash^{/$*} -p; }; f"
+sapply = "!f() { git stash apply stash^{/$*};    }; f"
+spop = "!f() {   git stash pop $(git log -g stash --grep="Foo" --pretty=format:"%gd");    }; f"
