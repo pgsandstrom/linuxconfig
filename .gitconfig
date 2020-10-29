@@ -1,5 +1,4 @@
 [rebase]
-
 	autoStash = true
-
-[alias]
+[push]
+	default = current
