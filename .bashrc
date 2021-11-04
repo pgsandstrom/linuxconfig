@@ -14,7 +14,7 @@ alias gb='git branch'
 
 # fix so we do 'git push -u' if we are creating the branch, so we automatically track branches
 # this is taken from https://stackoverflow.com/a/19021888/249871
-alias gpu='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] && 
+alias gpush='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] && 
            git push -u origin $(git symbolic-ref --short HEAD) || 
            git push'
 
