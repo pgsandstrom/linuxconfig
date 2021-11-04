@@ -1,3 +1,6 @@
+test -f ~/.git-completion.bash && . $_
+
+
 alias ll='ls -al'
 
 alias gs='git status'
@@ -9,19 +12,10 @@ alias gl='git log'
 alias ga='git add'
 alias gb='git branch'
 
-# Go to master, fetch, rebase. Prune and delete all local branches that were removed on origin.
-alias gprune="git checkout master && git fetch && git rebase && git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
+# fix so we do 'git push -u' if we are creating the branch, so we automatically track branches
+# this is taken from https://stackoverflow.com/a/19021888/249871
+alias gpu='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] && 
+           git push -u origin $(git symbolic-ref --short HEAD) || 
+           git push'
 
-# gsearch "My commit" copies commit hash to clipboard
-gsearch() {
- 	COMMIT_GREPS=$(git log --grep "$1" | grep commit)
- 	NUMBER_OF_HITS=$(printf "$COMMIT_GREPS" | wc -l)
- 	if (($NUMBER_OF_HITS == 0)); then
- 		echo "No commit found"
-    fi
-    # printf is more 1337 to use when not doing simple output to the user
-    # awk prints second word which is git hash
-    # tr removes newline at end
-    # /dev/clipboard is the clipboard in cygwin (ie git for windows)
- 	printf %b "$COMMIT_GREPS" | head -n 1 | awk '{print $2}' | tr -d '\n' > /dev/clipboard
- }
+alias sd='say done'
