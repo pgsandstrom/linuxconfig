@@ -4,6 +4,7 @@ set ignorecase
 
 
 
+
 " This is done so we can use comment command in vscode. I got it from the extension wiki
 function! s:vscodeCommentary(...) abort
     if !a:0
@@ -36,6 +37,14 @@ nnoremap <expr> <C-/> <SID>vscodeCommentary() . '_'
 
 
 
+" Prevent O from copying // if we are standing on a commented line
+" It does have the problem that indentation is not preserved, but I guess thats ok
 nnoremap O :set paste<CR>O<Esc>:set nopaste<CR>a
 nnoremap o :set paste<CR>o<Esc>:set nopaste<CR>a
+
+
+
+
+" Suddenly matching with % broke, now I need this for it to work: 
+runtime macros/matchit.vim 
 
