@@ -6,8 +6,8 @@ set ignorecase
 
 " Prevent O from copying // if we are standing on a commented line
 " It does have the problem that indentation is not preserved, but I guess thats ok
-nnoremap O :set paste<CR>O<Esc>:set nopaste<CR>a
-nnoremap o :set paste<CR>o<Esc>:set nopaste<CR>a
+ nnoremap O <cmd>set paste<CR>O<Esc><cmd>set nopaste<CR>a
+ nnoremap o <cmd>set paste<CR>o<Esc><cmd>set nopaste<CR>a
 
 
 
