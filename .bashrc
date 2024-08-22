@@ -8,7 +8,7 @@ alias gc='git commit'
 alias gd='git diff'
 alias gch='git checkout'
 alias gcp='git cherry-pick'
-alias gl='git log'
+alias gl='git log --first-parent'
 alias ga='git add'
 alias gb='git branch'
 
