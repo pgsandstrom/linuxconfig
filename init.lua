@@ -25,3 +25,11 @@ require("lazy").setup({
     end
 })
 
+-- Share clipboard with the OS
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.ignorecase = true
+
+-- Prevent `O` from copying `//` if standing on a commented line
+-- It does have the problem that indentation is not preserved, but I guess thats ok
+vim.api.nvim_set_keymap('n', 'O', '<cmd>set paste<CR>O<Esc><cmd>set nopaste<CR>a', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'o', '<cmd>set paste<CR>o<Esc><cmd>set nopaste<CR>a', { noremap = true, silent = true })
