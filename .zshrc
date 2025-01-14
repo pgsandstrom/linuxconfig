@@ -1,5 +1,11 @@
 # optional homebrew line: 
-# export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+ 
+if [[ -n $SSH_CONNECTION ]]; then
+  PROMPT='%F{red}%n@%m%f %~ %# '  # Show username@hostname in red for SSH sessions
+else
+  PROMPT='%~ %# '  # Minimal prompt for local sessions
+fi
 
 alias ll='ls -al'
 
