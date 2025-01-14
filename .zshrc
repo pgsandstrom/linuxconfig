@@ -1,5 +1,5 @@
-test -f ~/.git-completion.bash && . $_
-
+# optional homebrew line: 
+# export PATH=/opt/homebrew/bin:$PATH
 
 alias ll='ls -al'
 
@@ -19,3 +19,6 @@ alias gpush='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge")
            git push'
 
 alias sd='say done'
+
+# fix git autocomplete
+autoload -Uz compinit && compinit
