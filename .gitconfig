@@ -1,8 +1,27 @@
-[rebase]
-        autoStash = true
-[push]
-        default = current
-[pull]
-        rebase = true
+# inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
 [fetch]
         prune = true
+        pruneTags = true
+        all = true
+[init]
+        defaultBranch = main
+[pull]
+        rebase = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[rebase]
+        autoStash = true
+        autoSquash = true
+        updateRefs = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[tag]
+        sort = version:refname
